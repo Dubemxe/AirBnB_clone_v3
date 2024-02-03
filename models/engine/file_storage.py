@@ -40,7 +40,7 @@ class FileStorage:
             key = obj.__class__.__name__ + "." + obj.id
             self.__objects[key] = obj
 
-     def get(self, cls, id):
+    def get(self, cls, id):
         '''Retrieves one object
 
            Returns:  the object based on the class and its ID,
