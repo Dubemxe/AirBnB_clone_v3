@@ -3,6 +3,7 @@
 Start Api
 '''
 from models import storage
+from os import environ
 from api.v1.views import app_views
 from flask import Flask
 app = Flask(__name__)
@@ -12,11 +13,11 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def close_db(error):
-    """ Close Storage """
+    """Close Storage"""
     storage.close()
 
 if __name__ == "__main__":
-    """ Main Function """
+    """Main Function"""
     host = environ.get('HBNB_API_HOST')
     port = environ.get('HBNB_API_PORT')
     if not host:
