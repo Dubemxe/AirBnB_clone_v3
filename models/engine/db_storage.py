@@ -49,9 +49,9 @@ class DBStorage:
                     new_dict[key] = obj
         return (new_dict)
 
-    def new(self, obj):
+    '''def new(self, obj):
         """add the object to the current database session"""
-        self.__session.add(obj)
+        self.__session.add(obj)'''
 
     def get(self, cls, id):
         """
@@ -75,6 +75,10 @@ class DBStorage:
          If no class is passed, returns the count of all objects in storage.
         '''
         return len(self.all(cls))
+
+    def new(self, obj):
+        """add the object to the current database session"""
+        self.__session.add(obj)
 
     def save(self):
         """commit all changes of the current database session"""
