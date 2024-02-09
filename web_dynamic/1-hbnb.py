@@ -2,14 +2,14 @@
 """
 Start Flask App that integrates with static AirBnB.
 """
+import uuid
 from flask import Flask, render_template, url_for
 from models import storage
-import uuid
 
 # flask setup
 app = Flask(__name__)
 app.url_map.strict_slashes = False
-port = 5000
+port = 5001
 host = '0.0.0.0'
 
 
@@ -23,7 +23,7 @@ def teardown_db(exception):
     storage.close()
 
 
-@app.route('/0-hbnb/')
+@app.route('/1-hbnb')
 def hbnb_filters(the_id=None):
     """
     Handles request to custom template with states, cities & amentities
@@ -44,5 +44,5 @@ def hbnb_filters(the_id=None):
 
 
 if __name__ == "__main__":
-    """Main:- run app"""
+    """Main run app"""
     app.run(host=host, port=port)
